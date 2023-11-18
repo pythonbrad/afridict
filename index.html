@@ -1,0 +1,216 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>📘 AfriDict</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <link
+      href="https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      id="theme"
+      rel="stylesheet"
+      href="https://unpkg.com/bulmaswatch/flatly/bulmaswatch.min.css"
+    />
+    <meta name="description" content="African opensource dictionary." />
+    <meta name="author" content="@pythonbrad" />
+  </head>
+
+  <body>
+    <section class="hero is-fullheight">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/">📘 AfriDict</a>
+              <a role="button" id="burger" class="navbar-burger">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+            <div id="navbar" class="navbar-menu">
+              <div class="navbar-start">
+                <a
+                  class="navbar-item is-active"
+                  href="/"
+                  data-text-id="home_label"
+                  >home</a
+                >
+                <a class="navbar-item" data-text-id="feature_label">feature</a>
+              </div>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="tags has-addons">
+                    <a
+                      class="tag is-dark"
+                      data-text-id="dark_theme_label"
+                      onclick="setTheme('dark')"
+                      >dark_theme</a
+                    >
+                    <a
+                      class="tag is-info"
+                      data-text-id="light_theme_label"
+                      onclick="setTheme('light')"
+                      >light_theme</a
+                    >
+                  </div>
+                </div>
+                <div class="navbar-item">
+                  <div class="tags has-addons">
+                    <a class="tag is-danger" id="first-lang" data-lang-id="en"
+                      >EN</a
+                    >
+                    <a class="tag is-info" id="second-lang" data-lang-id="fr"
+                      >FR</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns">
+            <div class="column is-2"></div>
+            <div class="column">
+              <div class="field has-addons">
+                <p class="control">
+                  <span class="select">
+                    <select id="search-lang">
+                      <option value="am" data-placeholder="እዚህ ቃል ያስገቡ">
+                        አማራ
+                      </option>
+                      <option value="sw" data-placeholder="Ingiza neno">
+                        Kiswahili
+                      </option>
+
+                      <option value="nu" data-placeholder="Entrez un mot">
+                        Nufi
+                      </option>
+                    </select>
+                  </span>
+                </p>
+                <p class="control is-expanded">
+                  <input
+                    id="search-input"
+                    class="input"
+                    type="text"
+                    placeholder="Enter a word here"
+                  />
+                </p>
+                <p class="control">
+                  <a
+                    id="search-button"
+                    class="button"
+                    data-text-id="search_button_label"
+                    >search_button</a
+                  >
+                </p>
+              </div>
+              <div id="search-suggestion" class="tags is-centered">
+                <span id="search-suggestion-item" class="tag is-primary"
+                  >word</span
+                >
+              </div>
+            </div>
+            <div class="column is-2"></div>
+          </div>
+          <hr />
+          <div class="columns">
+            <div class="column is-3"></div>
+            <div class="column">
+              <div id="word-data" class="content has-text-left">
+                <p id="word-data-info">
+                  <span class="title is-1">word</span>
+                  <span>nature</span>
+                </p>
+                <h5 id="word-data-definition">definition</h5>
+                <blockquote id="word-data-example">example</blockquote>
+                <p id="word-not-found" class="title" data-text-id="not_found">
+                  not_found
+                </p>
+              </div>
+            </div>
+            <div class="column is-3"></div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="hero-foot">
+        <div class="container">
+          <div class="content has-text-centered">
+            <p>
+              <a class="icon" href="//github.com/pythonbrad" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              &nbsp;
+              <a class="icon" href="//twitter.com/pythonbrad" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </p>
+            <p>
+              <strong>AfriDict</strong> by
+              <a href="https://github.com/pythonbrad" target="_blank"
+                >@pythonbrad</a
+              >. <br />
+              Based on <a href="https://bulma.io" target="_blank">Bulma</a>.
+              Icons from
+              <a href="https://fontawesome.com/" target="_blank">Font Awesome</a
+              >. Web Fonts from
+              <a href="https://fonts.google.com/" target="_blank">Google</a>.
+              <br />
+              The source code is licensed
+              <a
+                href="https://opensource.org/licenses/mit-license.php"
+                target="_blank"
+                >MIT</a
+              >.
+            </p>
+            <p>
+              <a
+                class="button is-warning"
+                href="https://www.buymeacoffee.com/pythonbrad"
+                target="_blank"
+              >
+                <span class="icon">
+                  <i class="fas fa-coffee"></i>
+                </span>
+                <span>Buy Me A Coffee</span>
+              </a>
+            </p>
+            <br />
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const navbar = document.getElementById("navbar");
+      const burger = document.getElementById("burger");
+      burger.addEventListener("click", () => {
+        navbar.classList.toggle("is-active");
+        burger.classList.toggle("is-active");
+      });
+
+      function setTheme(theme) {
+        var theme = theme == "dark" ? "darkly" : "flatly";
+        const themeElement = document.getElementById("theme");
+        themeElement.href = `https://unpkg.com/bulmaswatch/${theme}/bulmaswatch.min.css`;
+      }
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        setTheme("dark");
+      }
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          setTheme(e.matches ? "dark" : "light");
+        });
+    </script>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>
