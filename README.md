@@ -10,6 +10,9 @@
 
 <sub>Built by <a href="https://github.com/pythonbrad">@pythonbrad</a></sub>
 
+
+![Screen Shot 2023-11-19 at 15 02 58](https://github.com/pythonbrad/afridict/assets/45305909/9a329f01-d5fd-41a1-abb0-d9c0f637272c)
+
 </div>
 
 ## 🚴 Usage
